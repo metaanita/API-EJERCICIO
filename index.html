@@ -1,0 +1,37 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta description="description" content="Prueba de API">
+        <title>Prueba ejercicio Invitaciones</title>
+    </head>
+      <body>
+        
+       <section>
+        <h1>Invitaciones</h1>
+            <div id="invitaciones"></div>
+        <script>
+            alert ("hola")
+            // Creando una función = declararla, definirla, etc
+            function print(datosRecibidosJson) {
+                content = document.getElementById("invitaciones");
+                for(i in datosRecibidosJson.data) {
+                    console.log(datosRecibidosJson.data[i].name)
+
+                    //content.innerHTML += "<p>" + datosRecibidosJson.data[i].name + "</p>
+                    <img src="https://cristinamaser.com/" + datosRecibidosJson.data[i].invitationimg[0].src + "'/>";
+
+                }
+            }
+
+            fetch("https://cristinamaser.com/api/invitations")
+            .then(responseDeServidor => responseDeServidor.json())
+            .then(datosRecibidosJson => print(datosRecibidosJson))
+        </script>
+        
+
+    </section>
+</body>
+</html>
